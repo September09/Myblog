@@ -1,0 +1,8 @@
+npm-debug.*
+package-lock.json
+node_modules
+dist
+*.swp
+*.swo
+.idea/
+.DS_Store
