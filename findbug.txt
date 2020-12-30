@@ -1,0 +1,26 @@
+D:\xx\code\Myblog\node_modules\_open-browser-webpack-plugin@0.0.5@open-browser-webpack-plugin\index.js
+
+line 51
+
+因webpack升级到5.xx版本后，compiler不存在plugin属性，改为hooks属性，需修改open-browser-webpack-plugin编译文件中对应的方法，该插件仅在本地开发使用，不影响打包
+
+  // compiler.plugin('watch-run', function checkWatchingMode(watching, done) {
+  //   isWatching = true;
+  //   done();
+  // });
+
+  // compiler.plugin('done', function doneCallback(stats) {
+  //   if (isWatching && (!stats.hasErrors() || ignoreErrors)) {
+  //     executeOpen();
+  //   }
+  // });
+  
+  compiler.hooks.watchRun.tap('checkWatchingMode', () => {
+    isWatching = true;
+  });
+
+  compiler.hooks.done.tap('doneCallback', (stats) => {
+    if (isWatching && (!stats.hasErrors() || ignoreErrors)) {
+      executeOpen();
+    }
+  });

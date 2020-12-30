@@ -30,13 +30,15 @@ const pxtorem = require('postcss-pxtorem')
 const postcssConfig = {
     loader: 'postcss-loader',
     options: {
+      postcssOptions: {
         plugins: () => [
-            autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
-            pxtorem({
-                rootValue: 100,
-                propWhiteList: [],
-            })
+          autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
+          pxtorem({
+              rootValue: 100,
+              propWhiteList: [],
+          })
         ]
+      }
     }
 };
 
