@@ -23,7 +23,7 @@ export default class App extends Component {
     return (
       <div style={{width: "100%", height: "100%"}}>
         {/* <Home/>*/}
-        我的个人博客
+        我的个人博客 干的漂亮
       </div>
     )
   }
