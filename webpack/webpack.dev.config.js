@@ -5,14 +5,14 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const webpackMerge = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const webpackConfig = require('./webpack.config');
 
 process.env.NODE_ENV = 'development';
-
-module.exports = merge(webpackConfig, {
-  devtool: 'cheap-module-eval-source-map',
+module.exports = webpackMerge.merge(webpackConfig, {
+  // devtool: isProd ? '' : 'source-map',
+  devtool: 'eval-cheap-module-source-map',
   mode: "development",
   entry: [
     'babel-polyfill',

@@ -5,13 +5,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const webpackMerge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const webpackConfig = require('./webpack.config');
 
 process.env.NODE_ENV = 'production';
 
-module.exports = merge(webpackConfig, {
+module.exports = webpackMerge.merge(webpackConfig, {
     mode: "production",
     entry: [
         'babel-polyfill',
