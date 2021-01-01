@@ -77,9 +77,6 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-              options: {
-                  limit: 25000
-              }
           },
         ],
       },

@@ -12,6 +12,7 @@ import 'babel-polyfill';
 import { browserHistory } from 'react-router'
 import configureStore from './store/index'
 import RouterMap from './router/router';
+import 'antd/dist/antd.css'
 
 const store = configureStore();
 

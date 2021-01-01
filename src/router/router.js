@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 路由
+ * @version: 2021-01-01
+ * @Author: will
+ * @Date: 2020-12-30 20:21:25
+ * @LastEditors: will
+ * @LastEditTime: 2021-01-01 21:50:20
+ */
 import React from "react"
 import { Route, hashHistory } from "react-router"
 import { HashRouter } from "react-router-dom"
@@ -7,6 +15,7 @@ import App from "../App"
 // import Contact from "../containers/Contact"
 // import Register from "../containers/register"
 // import Login from "../containers/login"
+import MyLayout from '../components/layout'
 
 
 const RouteMap = () =>
@@ -19,6 +28,7 @@ const RouteMap = () =>
       {/* <Route path="/contact" component={Contact} />*/}
       {/* <Route path="/register" component={Register} />*/}
       {/* <Route path="/login" component={Login} />*/}
+      <Route exact path="/layout" component={MyLayout} />
     </div>
   </HashRouter>
 
