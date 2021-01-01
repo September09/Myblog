@@ -24,3 +24,7 @@ line 51
       executeOpen();
     }
   });
+
+
+  package 删除history（未使用），5.0.0版本与"react-router-dom": "^5.2.0"不兼容 
+  history 删除createLocation方法，react-router-dom 5.2.0版本仍在使用
