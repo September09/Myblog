@@ -1,4 +1,4 @@
-D:\xx\code\Myblog\node_modules\_open-browser-webpack-plugin@0.0.5@open-browser-webpack-plugin\index.js
+Myblog\node_modules\_open-browser-webpack-plugin@0.0.5@open-browser-webpack-plugin\index.js
 
 line 51
 
