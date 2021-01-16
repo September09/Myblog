@@ -29,6 +29,12 @@ const renderDom = () => {
 
 renderDom();
 
+const unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+)
+
+unsubscribe()
+
 if (module.hot) {
   module.hot.accept(renderDom());
 }

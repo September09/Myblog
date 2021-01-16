@@ -28,18 +28,18 @@ const pxtorem = require('postcss-pxtorem')
 //   // 遍历根目录第一层所有文件夹下的index.js文件
 // }
 const postcssConfig = {
-    loader: 'postcss-loader',
-    options: {
-      postcssOptions: {
-        plugins: () => [
-          autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
-          pxtorem({
-              rootValue: 100,
-              propWhiteList: [],
-          })
-        ]
-      }
+  loader: 'postcss-loader',
+  options: {
+    postcssOptions: {
+      plugins: () => [
+        autoprefixer({browsers: ['> 1%', 'last 4 versions']}),
+        pxtorem({
+          rootValue: 100,
+          propWhiteList: [],
+        })
+      ]
     }
+  }
 };
 
 module.exports = {
@@ -50,6 +50,10 @@ module.exports = {
   }, // 指定入口文件，程序从这里开始编译,__dirname当前目录, ../表示上一级目录, ./同级目录
   resolve: { // 指定第三方库目录，减少webpack寻找时间
     modules: [path.resolve(__dirname, '../node_modules')],
+    alias: {
+      '@': path.resolve(__dirname, "../src"),
+      '_c': path.resolve(__dirname, "../src/components"),
+    }
   },
   output: {
     path: path.resolve(__dirname, '../dist/myBlog'), // 输出的路径
@@ -93,37 +97,37 @@ module.exports = {
           },
         }],
       },
-        {
-            test: /\.scss$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                postcssConfig,
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        sassOptions: {
-                            includePaths: [
-                                path.resolve(__dirname, "src/style"),
-                                path.resolve(__dirname, "src/components")
-                            ]
-                        }
-                    }
-                }
-            ],
-        },
-        {
-            test: /\.(png|jpg|jpeg|gif|ico)$/,
-            use: [
-                {
-                    loader: 'url-loader',
-                    options: {
-                        name:'[path][name].[ext]',
-                        limit: 25000
-                    }
-                }
-            ]
-        }
+      {
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          postcssConfig,
+          {
+            loader: 'sass-loader',
+            options: {
+              sassOptions: {
+                includePaths: [
+                  path.resolve(__dirname, "src/style"),
+                  path.resolve(__dirname, "src/components")
+                ]
+              }
+            }
+          }
+        ],
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif|ico)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: '[path][name].[ext]',
+              limit: 25000
+            }
+          }
+        ]
+      }
     ],
   },
   plugins: [

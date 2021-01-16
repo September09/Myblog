@@ -3,185 +3,185 @@
  * @version: 2021-01-01
  * @Author: will
  * @Date: 2021-01-01 19:55:24
- * @LastEditors: will
- * @LastEditTime: 2021-01-01 21:12:32
+ * @LastEditors: 20023707
+ * @LastEditTime: 2021-01-13 14:31:40
  */
 const layout = [
   {
-    navId: 0,
-    navName: 'nav 0',
-    categoryList: [
+    path: '0',
+    pathName: 'nav 0',
+    children: [
       {
-        categoryId: 0,
-        categoryName: 'category 0',
-        itemList: [
+        path: '0-0',
+        pathName: 'category 0-0',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '0-0-0',
+            pathName: 'item 0-0-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '0-0-1',
+            pathName: 'item 0-0-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '0-0-2',
+            pathName: 'item 0-0-2',
           }
         ]
       },
       {
-        categoryId: 1,
-        categoryName: 'category 1',
-        itemList: [
+        path: '0-1',
+        pathName: 'category 0-1',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '0-1-0',
+            pathName: 'item 0-1-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '0-1-1',
+            pathName: 'item 0-1-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '0-1-2',
+            pathName: 'item 0-1-2',
           }
         ]
       },
       {
-        categoryId: 2,
-        categoryName: 'category 2',
-        itemList: [
+        path: '0-2',
+        pathName: 'category 0-2',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '0-2-0',
+            pathName: 'item 0-2-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '0-2-1',
+            pathName: 'item 0-2-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '0-2-2',
+            pathName: 'item 0-2-2',
           }
         ]
       }
     ]
   },
   {
-    navId: 1,
-    navName: 'nav 1',
-    categoryList: [
+    path: '1',
+    pathName: 'nav 1',
+    children: [
       {
-        categoryId: 0,
-        categoryName: 'category 0',
-        itemList: [
+        path: '1-0',
+        pathName: 'category 1-0',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '1-0-0',
+            pathName: 'item 1-0-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '1-0-1',
+            pathName: 'item 1-0-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '1-0-2',
+            pathName: 'item 1-0-2',
           }
         ]
       },
       {
-        categoryId: 1,
-        categoryName: 'category 1',
-        itemList: [
+        path: '1-1',
+        pathName: 'category 1-1',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '1-1-0',
+            pathName: 'item 1-1-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '1-1-1',
+            pathName: 'item 1-1-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '1-1-2',
+            pathName: 'item 1-1-2',
           }
         ]
       },
       {
-        categoryId: 2,
-        categoryName: 'category 2',
-        itemList: [
+        path: '1-2',
+        pathName: 'category 1-2',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '1-2-0',
+            pathName: 'item 1-2-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '1-2-1',
+            pathName: 'item 1-2-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '1-2-2',
+            pathName: 'item 1-2-2',
           }
         ]
       }
     ]
   },
   {
-    navId: 2,
-    navName: 'nav 2',
-    categoryList: [
+    path: '2',
+    pathName: 'nav 2',
+    children: [
       {
-        categoryId: 0,
-        categoryName: 'category 0',
-        itemList: [
+        path: '2-0',
+        pathName: 'category 2-0',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '2-0-0',
+            pathName: 'item 2-0-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '2-0-1',
+            pathName: 'item 2-0-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '2-0-2',
+            pathName: 'item 2-0-2',
           }
         ]
       },
       {
-        categoryId: 1,
-        categoryName: 'category 1',
-        itemList: [
+        path: '2-1',
+        pathName: 'category 2-1',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '2-1-0',
+            pathName: 'item 2-1-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '2-1-1',
+            pathName: 'item 2-1-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '2-1-2',
+            pathName: 'item 2-1-2',
           }
         ]
       },
       {
-        categoryId: 2,
-        categoryName: 'category 2',
-        itemList: [
+        path: '2-2',
+        pathName: 'category 2-2',
+        children: [
           {
-            itemId: 0,
-            itemName: 'item 0',
+            path: '2-2-0',
+            pathName: 'item 2-2-0',
           },
           {
-            itemId: 1,
-            itemName: 'item 1',
+            path: '2-2-1',
+            pathName: 'item 2-2-1',
           },
           {
-            itemId: 2,
-            itemName: 'item 2',
+            path: '2-2-2',
+            pathName: 'item 2-2-2',
           }
         ]
       }

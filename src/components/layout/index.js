@@ -3,92 +3,78 @@
  * @version: 2021 0101
  * @Author: will
  * @Date: 2021-01-01 18:54:08
- * @LastEditors: will
- * @LastEditTime: 2021-01-01 21:19:29
+ * @LastEditors: 20023707
+ * @LastEditTime: 2021-01-15 14:03:00
  */
-import React, { Component } from "react"
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
-import layoutData from '../../constData/layout'
+import { connect } from 'react-redux'
+import { setNavId } from '../../actions/layout'
+import { withRouter } from 'react-router-dom'
+import HASH_HISTORY from '../../utils/history'
+import Layout from './layout'
+import '../../style/layout.scss'
 
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const getMenuData = (layoutData, path) => {
+  console.log(layoutData, path)
+  const id = path.split('-')[0]
+  const navData = layoutData.find(nav => nav.path === id) || {}
+  const { routes = [] } = navData
+  return routes
+}
 
-const ICON_LIST = [<UserOutlined />, <LaptopOutlined />, <NotificationOutlined />]
+const routerArr = []
 
-class MyLayout extends Component {
-  render() {
-    return (
-      <Layout>
-        <Header className="header">
-          <div className="logo" />
-          {this.setNav()}
-        </Header>
-        <Layout>
-          <Sider width={200} className="site-layout-background">
-            {this.setCategory()}
-          </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
-            <Content
-              className="site-layout-background"
-              style={{
-                padding: 24,
-                margin: 0,
-                minHeight: 280,
-              }}
-            >
-              Content
-            </Content>
-          </Layout>
-        </Layout>
-      </Layout>
-    )
-  }
-
-  setNav() {
-    return (
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['0']}>
-        {
-          layoutData.map(nav => {
-            return <Menu.Item key={nav.navId}>{nav.navName}</Menu.Item>
-          })
-        }
-      </Menu>
-    )
-  }
-
-  setCategory(navId = 0) {
-    const navData = layoutData.find(nav => nav.navId === navId) || {}
-    const { categoryList = [] } = navData
-    return (
-      <Menu
-        mode="inline"
-        defaultSelectedKeys={['0']}
-        defaultOpenKeys={['0']}
-        style={{ height: '100%', borderRight: 0 }}
-      >
-        {
-          categoryList.map((category, categoryIndex) => {
-            const iconIndex = categoryIndex % ICON_LIST.length
-            return (
-              <SubMenu key={category.categoryId} icon={ICON_LIST[iconIndex]} title={category.categoryName} >
-                {
-                  category.itemList.map(item => {
-                    return <Menu.Item key={item.itemId}>{item.itemName}</Menu.Item>
-                  })
-                }
-              </SubMenu>
-            )
-          })
-        }
-      </Menu>
-    )
+const findOne = (key, data, routerArr = [], index = 0) => {
+  if (Array.isArray(data)) {
+    if(key === data.routeId) 
+  } else {
+    return 
   }
 }
 
-export default MyLayout
+const getDefaultSelectedKeys = path => {
+  let res = path.split('-')
+  const len = res.length
+  res = res.concat(Array(3 - len).fill('0'))
+
+  console.log('getDefaultSelectedKeys', {
+    defaultSelectedNavId: res[0],
+    defaultSelectedOptionId: res.slice(0, 2).join('-'),
+    defaultSelectedKey: res.join('-'),
+  })
+  return {
+    defaultSelectedNavId: res[0],
+    defaultSelectedOptionId: res.slice(0, 2).join('-'),
+    defaultSelectedKey: res.join('-'),
+  }
+}
+
+const mapStateToProps = ({layoutData = {}} = {}) => {
+  console.log('layoutData--------', layoutData)
+  return {
+    menuData: getMenuData(layoutData.navData, layoutData.path),
+    ...getDefaultSelectedKeys(layoutData.path),
+    ...layoutData,
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    menuClick: e => {
+      console.log(e)
+      // dispatch(setNavId(e.key))
+      console.log('---------------------------------------------------------------------')
+      HASH_HISTORY.push(e.key)
+    },
+    setNavId: path => {
+      console.log('setNavId----', path)
+      dispatch(setNavId(path))
+    }
+  }
+}
+
+const MyLayout = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Layout)
+
+export default withRouter(MyLayout)
